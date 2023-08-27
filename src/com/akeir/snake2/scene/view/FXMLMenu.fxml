@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="apMenu" onMouseEntered="#handleInitializeMenuVar" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.akeir.snake2.scene.controller.FXMLMenuController">
+   <children>
+      <Label fx:id="lbSelectGame" alignment="CENTER" contentDisplay="CENTER" layoutX="71.0" layoutY="23.0" text="Select the Game Mode" textAlignment="CENTER" AnchorPane.leftAnchor="71.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="25.0">
+         <font>
+            <Font name="Bug2K" size="48.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbNormalGame" alignment="CENTER" contentDisplay="CENTER" layoutX="227.0" layoutY="113.0" onMouseClicked="#handleNormalGame" onMouseEntered="#handleHighlight" onMouseExited="#handleLowlight" text="Normal Game" AnchorPane.topAnchor="100.0">
+         <font>
+            <Font name="Kanit Regular" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbGlitchGame" layoutX="255.0" layoutY="152.0" onMouseClicked="#handleGlitchGame" onMouseEntered="#handleHighlight" onMouseExited="#handleLowlight" text="Glitched" AnchorPane.topAnchor="150.0">
+         <font>
+            <Font name="Kanit Regular" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbTimerGame" layoutX="235.0" layoutY="200.0" onMouseClicked="#handleTimerGame" onMouseEntered="#handleHighlight" onMouseExited="#handleLowlight" text="Time Attack" AnchorPane.topAnchor="200.0">
+         <font>
+            <Font name="Kanit Regular" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbScaryGame" layoutX="208.0" layoutY="255.0" onMouseClicked="#handleScaryGame" onMouseEntered="#handleHighlight" onMouseExited="#handleLowlight" text="You Die (for real)" AnchorPane.topAnchor="250.0">
+         <font>
+            <Font name="Kanit Regular" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbScoreboard" layoutX="206.0" layoutY="341.0" onMouseClicked="#handleScoreboard" onMouseEntered="#handleHighlight" onMouseExited="#handleLowlight" text="Show Scoreboard" AnchorPane.bottomAnchor="25.0">
+         <font>
+            <Font name="Kanit Regular" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
