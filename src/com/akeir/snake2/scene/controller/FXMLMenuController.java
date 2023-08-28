@@ -142,17 +142,13 @@ public class FXMLMenuController implements Initializable {
     @FXML
     void handleHighlight(MouseEvent event) 
     {
-        Label theLabel = (Label) event.getSource();
-        theLabel.setFont(Font.font("Kanit Black", 24));
-        System.err.println("Highlight");
+        ((Label) event.getSource()).setFont(Font.font("Kanit Bold", 24));
     }
     
     @FXML
     void handleLowlight(MouseEvent event) 
     {
-        Label theLabel = (Label) event.getSource();
-        theLabel.setFont(Font.font("Kanit", 24));
-        System.err.println("Lowlight");
+        ((Label) event.getSource()).setFont(Font.font("Kanit Regular", 24));
     }
     
     @FXML
