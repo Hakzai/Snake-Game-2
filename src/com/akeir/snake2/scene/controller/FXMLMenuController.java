@@ -6,6 +6,7 @@
 package com.akeir.snake2.scene.controller;
 
 import com.akeir.controller.KeyController;
+import com.akeir.scene.controller.SnakeGameController;
 import com.akeir.snake2.global.GameMode;
 import com.akeir.snake2.global.GlobalParamsImpl;
 import java.io.IOException;
@@ -66,15 +67,7 @@ public class FXMLMenuController implements Initializable {
     @FXML
     void handleNormalGame(MouseEvent event) 
     {
-        try 
-        {
-            root = FXMLLoader.load(getClass().getResource("/com/akeir/scene/view/FXMLSnakeGame.fxml"));
-        } catch (IOException ex) {
-            
-            Logger.getLogger(FXMLMenuController.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, "EXCEPTION", "Error!", 0);
-            return;
-        }
+        root = new SnakeGameController();
         
         menu.hide();
         GlobalParamsImpl.GAME_MODE = GameMode.NORMAL;
@@ -99,22 +92,10 @@ public class FXMLMenuController implements Initializable {
     @FXML
     void handleTimerGame(MouseEvent event) 
     {
-        try 
-        {
-            Pane parentRoot = FXMLLoader.load(getClass().getResource("/com/akeir/scene/view/FXMLSnakeGame.fxml"));
-            
-            root = FXMLLoader.load(getClass().getResource("/com/akeir/snake2/scene/view/FXMLTimerSnake.fxml"));
-            root.getChildren();
-            
-        } catch (IOException ex) {
-            
-            Logger.getLogger(FXMLMenuController.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, "EXCEPTION", "Error!", 0);
-            return;
-        }
+        root = new SnakeTimerController();
         
         menu.hide();
-        GlobalParamsImpl.GAME_MODE = GameMode.NORMAL;
+        GlobalParamsImpl.GAME_MODE = GameMode.TIMER;
 
         Scene scene = new Scene(root);
         Stage stage = new Stage();

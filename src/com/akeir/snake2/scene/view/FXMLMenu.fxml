@@ -13,7 +13,7 @@
       </Label>
       <Label fx:id="lbNormalGame" alignment="CENTER" contentDisplay="CENTER" layoutX="227.0" layoutY="113.0" onMouseClicked="#handleNormalGame" onMouseEntered="#handleHighlight" onMouseExited="#handleLowlight" text="Normal Game" AnchorPane.topAnchor="100.0">
          <font>
-            <Font name="Kanit Regular" size="24.0" />
+            <Font name="Kanit Bold" size="24.0" />
          </font>
       </Label>
       <Label fx:id="lbGlitchGame" layoutX="255.0" layoutY="152.0" onMouseClicked="#handleGlitchGame" onMouseEntered="#handleHighlight" onMouseExited="#handleLowlight" text="Glitched" AnchorPane.topAnchor="150.0">
