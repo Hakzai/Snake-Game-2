@@ -5,10 +5,8 @@
  */
 package com.akeir.snake2.scene.controller;
 
-import com.akeir.controller.AnimationController;
 import com.akeir.scene.controller.SnakeGameController;
-import com.akeir.snake2.controller.AnimationControllerForSnakeTimer;
-import javafx.animation.AnimationTimer;
+import com.akeir.snake2.controller.SnakeTimerAnimationController;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
@@ -21,7 +19,10 @@ public class SnakeTimerController extends SnakeGameController {
     
     private Label lbTime;
     private Label lbTimeCount;
-    private AnimationTimer snakeTimer;
+    private Label lbTotalTime;
+    private Label lbTotalTimeCount;
+    private Label lbLongestTime;
+    private Label lbLongestTimeCount;
     
     public SnakeTimerController()
     {
@@ -49,6 +50,30 @@ public class SnakeTimerController extends SnakeGameController {
         lbTimeCount.setId("lbTimeCount");
         labelStyleCopy(lbScoreCount, lbTimeCount);
         this.getChildren().add(lbTimeCount);
+        
+        lbTotalTime = new Label("Total time: ");
+        lbTotalTime.setId("lbTotalTime");
+        labelStyleCopy(lbHighScore, lbTotalTime);
+        AnchorPane.setLeftAnchor(lbTotalTime, AnchorPane.getLeftAnchor(lbHighScore)-60.0);
+        this.getChildren().add(lbTotalTime);
+        
+        lbTotalTimeCount = new Label("0.0");
+        lbTotalTimeCount.setId("lbTotalTimeCount");
+        labelStyleCopy(lbHighScoreCount, lbTotalTimeCount);
+        AnchorPane.setLeftAnchor(lbTotalTimeCount, AnchorPane.getLeftAnchor(lbHighScoreCount)-60.0);
+        this.getChildren().add(lbTotalTimeCount);
+        
+        lbLongestTime = new Label("Longest time: ");
+        lbLongestTime.setId("lbLongestTime");
+        labelStyleCopy(lbTotalTime, lbLongestTime);
+        AnchorPane.setLeftAnchor(lbLongestTime, AnchorPane.getLeftAnchor(lbTotalTime)+260.0);
+        this.getChildren().add(lbLongestTime);
+        
+        lbLongestTimeCount = new Label("0.0");
+        lbLongestTimeCount.setId("lbLongestTimeCount");
+        labelStyleCopy(lbTotalTimeCount, lbLongestTimeCount);
+        AnchorPane.setLeftAnchor(lbLongestTimeCount, AnchorPane.getLeftAnchor(lbTotalTimeCount)+285.0);
+        this.getChildren().add(lbLongestTimeCount);
     }
     
     private void hideUnusedElements()
@@ -80,19 +105,20 @@ public class SnakeTimerController extends SnakeGameController {
     @Override
     public void startGame()
     {
-        System.err.print("STARTING THE GAME ALREADYYY");
+//        System.err.print("STARTING THE GAME ALREADYYY");
         super.startGame();
         
-        System.err.print("STARTING THE TIMER ALREADYYY");
-        startTimer();
+//        System.err.print("STARTING THE TIMER ALREADYYY");
+//        startTimer();
     }
     
-    private void startTimer()
+    @Override
+    protected void startMove()
     {
-        if(null == snakeTimer)
+        if(null == timer)
         {
-            snakeTimer = new AnimationControllerForSnakeTimer(getPaneSnake().getChildren(), this.getChildren());
+            timer = new SnakeTimerAnimationController(getPaneSnake().getChildren(), this.getChildren());
         }
-        snakeTimer.start();
+        timer.start();
     }
 }
