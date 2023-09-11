@@ -14,6 +14,9 @@ import com.akeir.global.Constants;
 public class ConstantsImpl extends Constants {
     
     protected ConstantsImpl() { }
+
+    public static final int THREE_AS_INTEGER = 3;
+    public static final int SNAKE_TIMER_POINTS_INCREASE_SPEED = 50;
     
-    public static final double INITIAL_TIME = 10.0;
+    public static final double INITIAL_TIME = TEN_AS_INTEGER;
 }

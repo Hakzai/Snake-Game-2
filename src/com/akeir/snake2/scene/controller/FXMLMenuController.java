@@ -6,6 +6,7 @@
 package com.akeir.snake2.scene.controller;
 
 import com.akeir.controller.KeyController;
+import com.akeir.helper.Utils;
 import com.akeir.scene.controller.SnakeGameController;
 import com.akeir.snake2.global.GameMode;
 import com.akeir.snake2.global.GlobalParamsImpl;
@@ -35,7 +36,11 @@ import javax.swing.JOptionPane;
 public class FXMLMenuController implements Initializable {
     
     private Pane root;
+    private Scene scene;
+
     private Stage menu;
+    
+    private KeyController keyboardActions = new KeyController();
 
     @FXML
     private AnchorPane apMenu;
@@ -68,19 +73,9 @@ public class FXMLMenuController implements Initializable {
     void handleNormalGame(MouseEvent event) 
     {
         root = new SnakeGameController();
-        
-        menu.hide();
         GlobalParamsImpl.GAME_MODE = GameMode.NORMAL;
-
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
         
-        scene.setOnKeyPressed(new KeyController());
-        stage.initModality(Modality.WINDOW_MODAL);
-        stage.setResizable(false);
-        stage.setTitle("Akeir Snake Game");
-        stage.setScene(scene);
-        stage.showAndWait();
+        startGame();
     }
     
     @FXML
@@ -93,19 +88,9 @@ public class FXMLMenuController implements Initializable {
     void handleTimerGame(MouseEvent event) 
     {
         root = new SnakeTimerController();
-        
-        menu.hide();
         GlobalParamsImpl.GAME_MODE = GameMode.TIMER;
-
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
         
-        scene.setOnKeyPressed(new KeyController());
-        stage.initModality(Modality.WINDOW_MODAL);
-        stage.setResizable(false);
-        stage.setTitle("Akeir Snake Game");
-        stage.setScene(scene);
-        stage.showAndWait();
+        startGame();
     }
     
     @FXML
@@ -123,13 +108,13 @@ public class FXMLMenuController implements Initializable {
     @FXML
     void handleHighlight(MouseEvent event) 
     {
-        ((Label) event.getSource()).setFont(Font.font("Kanit Bold", 24));
+        ((Label) event.getSource()).setFont(Font.loadFont(getClass().getResource("/com/akeir/snake2/resources/fonts/Kanit-Bold.ttf").toExternalForm(), 24.0));
     }
     
     @FXML
     void handleLowlight(MouseEvent event) 
     {
-        ((Label) event.getSource()).setFont(Font.font("Kanit Regular", 24));
+        ((Label) event.getSource()).setFont(Font.loadFont(getClass().getResource("/com/akeir/snake2/resources/fonts/Kanit-Regular.ttf").toExternalForm(), 24.0));
     }
     
     @FXML
@@ -144,7 +129,33 @@ public class FXMLMenuController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
-
+        lbSelectGame.setFont(Font.loadFont(getClass().getResource("/com/akeir/snake2/resources/fonts/Bug2K.ttf").toExternalForm(), 48.0));
     }    
     
+    private void startGame()
+    {
+        menu.hide();
+        
+        if(null == scene)
+        {
+            scene = new Scene(root);
+        }
+        scene.setRoot(root);
+        
+        Stage stage = new Stage();
+        
+        scene.setOnKeyPressed(keyboardActions);
+        scene.setOnKeyReleased(keyboardActions);
+        scene.setOnKeyTyped(keyboardActions);
+        GlobalParamsImpl.GAME_CRASHED = false;
+        stage.setOnCloseRequest(event -> {
+            System.out.println("Message exit");
+            Utils.DO_CRASH();
+        });
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.setResizable(false);
+        stage.setTitle("Akeir Snake Game");
+        stage.setScene(scene);
+        stage.showAndWait();
+    }
 }

@@ -7,6 +7,7 @@ package com.akeir.snake2.scene.controller;
 
 import com.akeir.scene.controller.SnakeGameController;
 import com.akeir.snake2.controller.SnakeTimerAnimationController;
+import com.akeir.snake2.controller.SnakeTimerFileController;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
@@ -37,6 +38,7 @@ public class SnakeTimerController extends SnakeGameController {
         buildLocalElements();
         hideUnusedElements();
         changeSceneTitle();
+        setCurrentLongestTime();
     }
     
     private void buildLocalElements() 
@@ -88,6 +90,11 @@ public class SnakeTimerController extends SnakeGameController {
     {
         lbTitle.setText("Snake Timer");
         lbTitle.setFont(Font.loadFont(getClass().getResource("/com/akeir/resources/fonts/pioneer.ttf").toExternalForm(), 80.0));
+    }
+    
+    private void setCurrentLongestTime()
+    {
+        lbLongestTimeCount.setText(SnakeTimerFileController.get().loadLongestTime());
     }
 
     private void labelStyleCopy(Label srcLabel, Label tgtLabel)

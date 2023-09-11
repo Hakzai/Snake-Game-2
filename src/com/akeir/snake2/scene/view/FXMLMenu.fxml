@@ -8,7 +8,7 @@
    <children>
       <Label fx:id="lbSelectGame" alignment="CENTER" contentDisplay="CENTER" layoutX="71.0" layoutY="23.0" text="Select the Game Mode" textAlignment="CENTER" AnchorPane.leftAnchor="71.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="25.0">
          <font>
-            <Font name="Bug2K" size="48.0" />
+            <Font name="System" size="48.0" />
          </font>
       </Label>
       <Label fx:id="lbNormalGame" alignment="CENTER" contentDisplay="CENTER" layoutX="227.0" layoutY="113.0" onMouseClicked="#handleNormalGame" onMouseEntered="#handleHighlight" onMouseExited="#handleLowlight" text="Normal Game" AnchorPane.topAnchor="100.0">
@@ -33,7 +33,7 @@
       </Label>
       <Label fx:id="lbScoreboard" layoutX="206.0" layoutY="341.0" onMouseClicked="#handleScoreboard" onMouseEntered="#handleHighlight" onMouseExited="#handleLowlight" text="Show Scoreboard" AnchorPane.bottomAnchor="25.0">
          <font>
-            <Font name="Kanit Bold" size="24.0" />
+            <Font name="Kanit Regular" size="24.0" />
          </font>
       </Label>
    </children>
