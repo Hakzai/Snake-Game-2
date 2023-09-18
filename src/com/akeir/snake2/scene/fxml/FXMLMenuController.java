@@ -3,20 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.akeir.snake2.scene.controller;
+package com.akeir.snake2.scene.fxml;
 
 import com.akeir.controller.KeyController;
 import com.akeir.helper.Utils;
 import com.akeir.scene.controller.SnakeGameController;
 import com.akeir.snake2.global.GameMode;
 import com.akeir.snake2.global.GlobalParamsImpl;
-import java.io.IOException;
+import com.akeir.snake2.scene.controller.SnakeTimerController;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;

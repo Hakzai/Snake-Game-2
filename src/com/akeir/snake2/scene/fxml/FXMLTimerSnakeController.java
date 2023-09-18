@@ -3,12 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.akeir.snake2.scene.controller;
+package com.akeir.snake2.scene.fxml;
 
-import com.akeir.scene.controller.FXMLSnakeGameController;
+import com.akeir.scene.fxml.FXMLSnakeGameController;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 
 /**

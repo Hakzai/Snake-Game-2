@@ -19,7 +19,7 @@ import javafx.scene.control.Label;
  *
  * @author Codeiro
  */
-public class CountersControllerForSnakeTimer extends CountersController {
+public class SnakeTimerCountersController extends CountersController {
     
     private double totalTime = 0.0;
     private double longestTime = 0.0;
@@ -32,7 +32,7 @@ public class CountersControllerForSnakeTimer extends CountersController {
     private Label lbTotalTimeCount;
     private Label lbLongestTimeCount;
     
-    public CountersControllerForSnakeTimer(ElementsHolder elements) 
+    public SnakeTimerCountersController(ElementsHolder elements) 
     {
         super(elements);
     }
