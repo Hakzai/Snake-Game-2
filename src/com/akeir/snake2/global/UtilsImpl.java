@@ -7,6 +7,8 @@ package com.akeir.snake2.global;
 
 import com.akeir.global.MessageLog;
 import com.akeir.helper.Utils;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 
 /**
  *
@@ -27,5 +29,17 @@ public class UtilsImpl extends Utils {
         }
         
         return result;
+    }
+    
+    public static final void labelStyleCopy(Label srcLabel, Label tgtLabel)
+    {
+        tgtLabel.setAlignment(srcLabel.getAlignment());
+        tgtLabel.setTextAlignment(srcLabel.getTextAlignment());
+        tgtLabel.setPrefHeight(srcLabel.getPrefHeight());
+        AnchorPane.setLeftAnchor(tgtLabel, AnchorPane.getLeftAnchor(srcLabel));
+        AnchorPane.setBottomAnchor(tgtLabel, AnchorPane.getBottomAnchor(srcLabel));
+        tgtLabel.setTextFill(srcLabel.getTextFill());
+        tgtLabel.setFont(srcLabel.getFont());
+        tgtLabel.setVisible(true);
     }
 }

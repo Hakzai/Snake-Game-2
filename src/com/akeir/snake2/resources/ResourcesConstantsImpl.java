@@ -13,7 +13,7 @@ import com.akeir.resources.ResourcesConstants;
  */
 public class ResourcesConstantsImpl extends ResourcesConstants {
     
-    protected ResourcesConstantsImpl() { };
+    protected ResourcesConstantsImpl() { }
     
     public static final String LONGEST_TIME_FILE_STRING = "Longest Time: ";
     public static final String LONGEST_TIME_FILE_PATH = System.getenv("AppData") +"\\SnakeSaveTimer.txt";

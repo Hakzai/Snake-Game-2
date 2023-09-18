@@ -22,7 +22,7 @@ public class SnakeGame extends Application {
     
     public void start(Stage stage) throws Exception 
     {
-        Parent root = FXMLLoader.load(getClass().getResource("/com/akeir/snake2/scene/view/FXMLMenu.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/akeir/snake2/scene/fxml/FXMLMenu.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setResizable(false);

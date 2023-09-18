@@ -13,7 +13,7 @@ import com.akeir.global.MessageLog;
  */
 public class MessageLogImpl extends MessageLog{
     
-    protected MessageLogImpl() { };
+    protected MessageLogImpl() { }
     
     public static final void SAVE_LONGEST_TIME()
     {

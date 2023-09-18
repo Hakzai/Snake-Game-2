@@ -16,13 +16,13 @@ import javafx.scene.control.Label;
  */
 public class SnakeTimerAnimationController extends AnimationController {
     
-    protected CountersControllerForSnakeTimer counter;
+    protected SnakeTimerCountersController counter;
     
     public SnakeTimerAnimationController(ObservableList<Node> snakeList, ObservableList<Node> elements) 
     {
         super(snakeList, elements);
         
-        counter = new CountersControllerForSnakeTimer(elementsHolder);
+        counter = new SnakeTimerCountersController(elementsHolder);
     }
     
     @Override

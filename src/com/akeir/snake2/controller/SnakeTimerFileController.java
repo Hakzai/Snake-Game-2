@@ -7,7 +7,6 @@ package com.akeir.snake2.controller;
 
 import com.akeir.global.Constants;
 import com.akeir.global.MessageLog;
-import com.akeir.resources.ResourcesConstants;
 import com.akeir.resources.controllers.FileController;
 import com.akeir.snake2.global.MessageLogImpl;
 import com.akeir.snake2.resources.ResourcesConstantsImpl;
@@ -78,12 +77,14 @@ public class SnakeTimerFileController{
         } catch (IOException ex) {
             if(ex instanceof FileNotFoundException)
             {
-                MessageLog.FILE_NOT_FOUND_ERROR();
+                MessageLogImpl.FILE_NOT_FOUND_ERROR();
+                saveLongestTime("0.0 sec");
+                return loadLongestTime();
             }
             else
             {
-                MessageLog.FILE_READ_ERROR();
-                MessageLog.EXCEPTION(ex);
+            	MessageLogImpl.FILE_READ_ERROR();
+            	MessageLogImpl.EXCEPTION(ex);
             }
 
             return currentLongestTime;
