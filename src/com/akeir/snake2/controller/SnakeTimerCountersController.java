@@ -83,7 +83,9 @@ public class SnakeTimerCountersController extends CountersController {
 
     protected void mapResultsToLabelCounters() 
     {
-        lbTimeCount.setText(String.valueOf(new BigDecimal(timeCount).setScale(2, BigDecimal.ROUND_DOWN)) + " sec");
+        lbTimeCount.setText(
+                (timeCount<=0.0 ? String.valueOf(new BigDecimal(0.00).setScale(2, BigDecimal.ROUND_DOWN)) : String.valueOf(new BigDecimal(timeCount).setScale(2, BigDecimal.ROUND_DOWN))
+                        ) + " sec");
         lbTotalTimeCount.setText(String.valueOf(new BigDecimal(totalTime).setScale(2, BigDecimal.ROUND_DOWN)) + " sec");
         
         if(totalTime>UtilsImpl.stringToDouble(lbLongestTimeCount.getText().substring(0, 3))) // SUBSTRING IS TO REMOVE " sec" FROM PARSE;

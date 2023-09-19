@@ -6,6 +6,8 @@
 package com.akeir.snake2.controller;
 
 import com.akeir.controller.AnimationController;
+import com.akeir.global.GameState;
+import com.akeir.snake2.global.GlobalParamsImpl;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
@@ -39,9 +41,15 @@ public class SnakeTimerAnimationController extends AnimationController {
     @Override
     protected void executeAnimation()
     {
-        super.executeAnimation();
-        
-        counter.handleTime();
+        if(!GameState.RUNNING.equals(GlobalParamsImpl.CURRENT_STATE))
+        {
+            return;
+        }
+        else
+        {
+            super.executeAnimation();
+            counter.handleTime();
+        }
     }
     
     @Override

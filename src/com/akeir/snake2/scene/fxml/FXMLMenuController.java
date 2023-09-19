@@ -143,8 +143,6 @@ public class FXMLMenuController implements Initializable {
         
         scene.setOnKeyPressed(keyboardActions);
         scene.setOnKeyReleased(keyboardActions);
-        scene.setOnKeyTyped(keyboardActions);
-        GlobalParamsImpl.GAME_CRASHED = false;
         stage.setOnCloseRequest(event -> {
             System.out.println("Message exit");
             Utils.DO_CRASH();
