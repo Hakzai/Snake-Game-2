@@ -10,6 +10,7 @@ import com.akeir.helper.Utils;
 import com.akeir.scene.controller.SnakeGameController;
 import com.akeir.snake2.global.GameMode;
 import com.akeir.snake2.global.GlobalParamsImpl;
+import com.akeir.snake2.scene.controller.SnakeScaryController;
 import com.akeir.snake2.scene.controller.SnakeTimerController;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -93,7 +94,11 @@ public class FXMLMenuController implements Initializable {
     @FXML
     void handleScaryGame(MouseEvent event) 
     {
-        JOptionPane.showMessageDialog(null, "Not implemented yet... :(", "Error!", 1);
+//        JOptionPane.showMessageDialog(null, "Not implemented yet... :(", "Error!", 1);
+        root = new SnakeScaryController();
+        GlobalParamsImpl.GAME_MODE = GameMode.SCARY;
+        
+        startGame();
     }
     
     @FXML
@@ -151,6 +156,7 @@ public class FXMLMenuController implements Initializable {
         stage.setResizable(false);
         stage.setTitle("Akeir Snake Game");
         stage.setScene(scene);
+        stage.centerOnScreen();
         stage.showAndWait();
     }
 }

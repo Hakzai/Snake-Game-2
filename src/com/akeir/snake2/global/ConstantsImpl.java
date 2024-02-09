@@ -17,6 +17,7 @@ public class ConstantsImpl extends Constants {
 
     public static final int THREE_AS_INTEGER = 3;
     public static final int SNAKE_TIMER_POINTS_INCREASE_SPEED = 50;
+    public static final int SNAKE_SCARY_POINTS_INCREASE_SPEED = 150;
     
     public static final double INITIAL_TIME = TEN_AS_INTEGER;
 }
